@@ -15,9 +15,9 @@ Dotenv.config({ path: Path.resolve(CWD, '.env') });
 const app = new Koa();
 
 app.use(async (ctx, next) => {
-    console.log(ctx.method, ctx.url);
+    console.log(ctx.method, ctx.path);
     try {
-        if (Path.extname(ctx.url) !== '.ts') {
+        if (Path.extname(ctx.path) !== '.ts') {
             await next();
         }
     } catch (err) {
@@ -28,7 +28,7 @@ app.use(async (ctx, next) => {
 app.use(KoaStatic(CWD));
 
 app.use(async (ctx) => {
-    const truePath = Path.join(CWD, `${ctx.url}.ts`);
+    const truePath = Path.join(CWD, `${ctx.path}.ts`);
     return reImport(truePath).then(mod => mod.bind(this)(ctx))
 });
 
