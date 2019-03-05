@@ -1,11 +1,11 @@
 import { cwd, env } from 'process';
-import * as Path from 'path';
+import Path from 'path';
 
-import * as Dotenv from 'dotenv';
-import * as Koa from 'koa';
-import * as KoaStatic from 'koa-static';
+import Dotenv from 'dotenv';
+import Koa from 'koa';
+import KoaStatic from 'koa-static';
 
-import { reImport } from '../util';
+import { reImport } from './util';
 
 const CWD = process.cwd();
 

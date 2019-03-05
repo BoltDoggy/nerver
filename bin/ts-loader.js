@@ -1,4 +1,4 @@
 #!/usr/bin/env node
 
 require('ts-node/register');
-require('./nerver-bin.ts');
+require('../lib/nerver-bin');

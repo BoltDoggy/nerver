@@ -1,7 +1,7 @@
 {
   "name": "nerver",
-  "version": "0.0.0",
-  "description": "",
+  "version": "1.0.2-rc.2",
+  "description": "A node simple Server, create a ts(TypeScript) file, and respond your body, just like a static server or PHP.",
   "main": "index.js",
   "bin": {
     "nerver": "bin/ts-loader.js"
@@ -11,15 +11,21 @@
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "@types/koa": "^2.0.48",
     "@types/node": "^11.10.4",
+    "dotenv": "^6.2.0",
+    "koa": "^2.7.0",
+    "koa-static": "^5.0.0",
     "ts-node": "^8.0.2",
     "typescript": "^3.3.3333"
   },
-  "dependencies": {
-    "dotenv": "^6.2.0",
-    "koa": "^2.7.0",
-    "koa-static": "^5.0.0"
-  }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BoltDoggy/nerver.git"
+  },
+  "bugs": {
+    "url": "https://github.com/BoltDoggy/nerver/issues"
+  },
+  "homepage": "https://github.com/BoltDoggy/nerver#readme"
 }
