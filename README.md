@@ -2,7 +2,7 @@
 
 A node simple Server, create a ts(TypeScript) file, and respond your body, just like a static server or PHP.
 
-```
+```bash
 // install nerver to your npm global
 npm i nerver -g
 
@@ -12,7 +12,7 @@ nerver
 
 Create or Edit `./xxx.ts`:
 
-```
+```typescript
 export default (ctx) => {
     ctx.body = {
         Hello: 'Nerver'
@@ -25,7 +25,7 @@ visit `http://127.0.0.1:3000/xxx`, you will got `{"Hello":"Nerver"}`;
 
 ## ENV
 
-```
+```bash
 port=3001 nerver
 ```
 
@@ -33,7 +33,7 @@ or
 
 Create `.env`:
 
-```
+```ini
 port=3001
 ```
 
