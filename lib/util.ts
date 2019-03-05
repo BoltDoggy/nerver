@@ -1,4 +1,4 @@
-export const getNerverPath = () => __dirname;
+// export const getNerverPath = () => __dirname;
 
 export const reImport = async (path:string) => {
     delete require.cache[require.resolve(path)];

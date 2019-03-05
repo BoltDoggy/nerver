@@ -1,6 +1,6 @@
 {
   "name": "nerver",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "A node simple Server, create a ts(TypeScript) file, and respond your body, just like a static server or PHP.",
   "main": "index.js",
   "bin": {
@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "tsc -w",
-    "prepublish": "tsc",
+    "prepare": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
