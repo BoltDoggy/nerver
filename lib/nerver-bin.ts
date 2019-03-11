@@ -3,6 +3,7 @@ import { cwd, env } from 'process';
 
 import Dotenv from 'dotenv';
 import Koa from 'koa';
+import KoaCors from '@koa/cors';
 import KoaStatic from 'koa-static';
 
 import { version } from '../package.json';
@@ -24,6 +25,8 @@ app.use(async (ctx, next) => {
         console.log(err);
     }
 });
+
+app.use(KoaCors());
 
 app.use(KoaStatic(CWD));
 
