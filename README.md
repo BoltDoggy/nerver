@@ -22,6 +22,9 @@ export default (ctx) => {
 
 visit `http://127.0.0.1:3000/xxx`, you will got `{"Hello":"Nerver"}`;
 
+- [QA](https://github.com/BoltDoggy/nerver/wiki)
+- [e.g.](https://github.com/BoltDoggy/nerver/wiki/Examples)
+
 
 ## ENV
 
