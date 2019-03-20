@@ -1,6 +1,6 @@
 {
   "name": "nerver",
-  "version": "1.0.5",
+  "version": "1.1.0-rc.1",
   "description": "A node simple Server, create a ts(TypeScript) file, and respond your body, just like a static server or PHP.",
   "main": "index.js",
   "bin": {
@@ -19,6 +19,7 @@
     "@types/node": "^11.10.4",
     "dotenv": "^6.2.0",
     "koa": "^2.7.0",
+    "koa-better-body": "^3.0.4",
     "koa-static": "^5.0.0",
     "ts-node": "^8.0.2",
     "typescript": "^3.3.3333"

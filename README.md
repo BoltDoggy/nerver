@@ -14,7 +14,7 @@ Create or Edit `./xxx.ts`:
 
 ```typescript
 export default (ctx) => {
-    ctx.body = {
+    return {
         Hello: 'Nerver'
     }
 }

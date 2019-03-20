@@ -1,13 +1,15 @@
+import FS from 'fs';
 import Path from 'path';
 import { cwd, env } from 'process';
 
 import Dotenv from 'dotenv';
 import Koa from 'koa';
 import KoaCors from '@koa/cors';
+import KoaBetterBody from 'koa-better-body';
 import KoaStatic from 'koa-static';
 
 import { version } from '../package.json';
-import { reImport } from './util';
+import { reImport, isFun } from './util';
 
 const CWD = cwd();
 
@@ -22,17 +24,51 @@ app.use(async (ctx, next) => {
             await next();
         }
     } catch (err) {
-        console.log(err);
+        console.error(err);
     }
 });
 
+/**
+ * 允许跨域
+ */
 app.use(KoaCors());
 
+/**
+ * 静态资源
+ */
 app.use(KoaStatic(CWD));
+
+/**
+ * 解析 post body
+ */
+app.use(KoaBetterBody());
+
+app.use(async (ctx, next) => {
+    const truePath = Path.join(CWD, `.nerver.config.ts`);
+    const ret = FS.existsSync(truePath);
+    if (ret) {
+        return reImport(truePath)
+            .then(mod => isFun(mod) && mod.bind(this)(ctx))
+            .catch((err) => {
+                next();
+                return Promise.reject(err);
+            })
+            .then(() => next());
+    } else {
+        return next();
+    }
+});
 
 app.use(async (ctx) => {
     const truePath = Path.join(CWD, `${ctx.path}.ts`);
-    return reImport(truePath).then(mod => mod.bind(this)(ctx))
+    return reImport(truePath)
+        .then(mod => isFun(mod) && mod.bind(this)(ctx))
+        .then((req) => {
+            // 用于支持 return
+            if (!ctx.body) {
+                ctx.body = req;
+            }
+        });
 });
 
 app.listen(env.port || 3000);

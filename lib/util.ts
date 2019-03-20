@@ -2,5 +2,7 @@
 
 export const reImport = async (path:string) => {
     delete require.cache[require.resolve(path)];
-    return import(path).then((mod) => mod.default || mod);
+    return import(path).then((mod) => mod.default || mod || (() => {}));
 };
+
+export const isFun = ele => typeof ele === 'function';
