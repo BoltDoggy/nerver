@@ -60,6 +60,9 @@ app.use(async (ctx, next) => {
 });
 
 app.use(async (ctx) => {
+    if (!ctx.path || ctx.path === '/') {
+        ctx.path = 'index';
+    }
     const truePath = Path.join(CWD, `${ctx.path}.ts`);
     return reImport(truePath)
         .then(mod => isFun(mod) && mod.bind(this)(ctx))
