@@ -56,3 +56,12 @@ Any static file, but `*.ts` and `.*`.
 ## ctx
 
 Just a koa context - https://koajs.com/#context
+
+```
+ctx.query
+ctx.request.body
+ctx.request.fields
+ctx.request.files
+ctx.cookies.get(key)
+ctx.cookies.set(key, value)
+```
