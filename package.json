@@ -1,6 +1,6 @@
 {
   "name": "nerver",
-  "version": "1.1.0",
+  "version": "1.1.1-rc.1",
   "description": "A node simple Server, create a ts(TypeScript) file, and respond your body, just like a static server or PHP.",
   "main": "index.js",
   "bin": {

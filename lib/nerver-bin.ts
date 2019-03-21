@@ -38,6 +38,8 @@ app.use(KoaCors({ credentials: true }));
  */
 app.use(KoaStatic(CWD));
 
+app.use(KoaStatic(Path.resolve(__dirname, '..', 'static')));
+
 /**
  * 解析 post body
  */
