@@ -31,7 +31,7 @@ app.use(async (ctx, next) => {
 /**
  * 允许跨域
  */
-app.use(KoaCors());
+app.use(KoaCors({ credentials: true }));
 
 /**
  * 静态资源
@@ -48,22 +48,18 @@ app.use(async (ctx, next) => {
     const ret = FS.existsSync(truePath);
     if (ret) {
         return reImport(truePath)
-            .then(mod => isFun(mod) && mod.bind(this)(ctx))
+            .then(mod => isFun(mod) && mod.bind(this)(ctx, next) || next())
             .catch((err) => {
                 next();
                 return Promise.reject(err);
             })
-            .then(() => next());
     } else {
         return next();
     }
 });
 
 app.use(async (ctx) => {
-    if (!ctx.path || ctx.path === '/') {
-        ctx.path = 'index';
-    }
-    const truePath = Path.join(CWD, `${ctx.path}.ts`);
+    const truePath = Path.join(CWD, `${ctx.path}.ts`).replace('/.ts', '/index.ts');
     return reImport(truePath)
         .then(mod => isFun(mod) && mod.bind(this)(ctx))
         .then((req) => {
