@@ -5,6 +5,8 @@ A node simple Server, create a ts(TypeScript) file, and respond your body, just 
 ```
 # open a dir, just run nerver
 npx nerver
+
+# need node, npm(with npx)
 ```
 
 
