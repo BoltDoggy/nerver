@@ -2,7 +2,7 @@
 
 A node simple Server, create a ts(TypeScript) file, and respond your body, just like a static server or PHP.
 
-```
+```bash
 # open a dir, just run nerver
 npx nerver
 
