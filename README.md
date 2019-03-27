@@ -2,13 +2,11 @@
 
 A node simple Server, create a ts(TypeScript) file, and respond your body, just like a static server or PHP.
 
-```bash
-# install nerver to your npm global
-npm i nerver -g
-
-# open a dir, just run nerver
-nerver
 ```
+# open a dir, just run nerver
+npx nerver
+```
+
 
 Create or Edit `./xxx.ts`:
 
