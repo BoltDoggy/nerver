@@ -76,5 +76,5 @@ app.use(async (ctx) => {
 app.listen(env.port || 3000);
 
 console.log(`Nerver Version: ${version}`);
-console.log(`Nerver Mode: ${process.env.mode || 'default'}`);
+console.log(`Nerver Mode: ${env.mode || 'default'}`);
 console.log(`Nerver on http://127.0.0.1:${env.port || 3000}`);
