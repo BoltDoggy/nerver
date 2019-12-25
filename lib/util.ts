@@ -2,7 +2,7 @@
 
 function delCache(path:string) {
     require.cache[path] && require.cache[path].children.forEach((mod:NodeModule) => {
-        if (mod.id.indexOf('/node_modules/') === -1) {
+        if (mod.id.indexOf('/node_modules/') === -1 && mod.id.indexOf('/.nerver/') === -1) {
             delCache(mod.id);
         }
     });
